@@ -1,85 +1,273 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Ryan Kim — UC Berkeley EECS student and software engineer building full-stack products and applied-AI systems."
-    />
-    <title>Ryan Kim</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="page">
-      <header class="hero">
-        <h1>Ryan Kim</h1>
-        <p class="meta">
-          UC Berkeley EECS '29 · Software Engineer at <strong>Teserac AI</strong> · Palo Alto, CA
-        </p>
-        <p class="intro">
-          I build full-stack products and applied-AI systems with Python, TypeScript, React, Django,
-          PostgreSQL, and AWS.
-        </p>
-        <p class="availability">Seeking Summer 2027 software engineering and applied-AI internships.</p>
-      </header>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <section>
-        <h2>Selected work</h2>
-        <ul class="work-list">
-          <li>
-            <strong>Datacenter operations platform — Teserac AI:</strong>
-            One of the top three contributors by commit count, with 227 PRs merged and 204 code reviews
-            in six months. I own systems spanning interactive power-topology diagrams, work orders,
-            auth/SSO, AI chat integration, and asynchronous data deletion.
-          </li>
-          <li>
-            <strong>AR field-service app — sole engineer:</strong>
-            Built a Kotlin/Jetpack Compose app for RayNeo smart glasses with on-prem NVIDIA Orin speech
-            recognition, on-device segmentation, WebRTC remote assistance, and offline-first sync.
-          </li>
-          <li>
-            <strong>Document intelligence and AI products:</strong>
-            Built the backend, frontend, and AWS infrastructure for a real-estate due-diligence product;
-            co-built and deployed an AI tutoring platform; and independently shipped a video-to-marketing
-            pipeline that reached <strong>$650/month in recurring revenue</strong>.
-          </li>
+<title>Ryan Kim — Software Engineer</title>
+<meta name="description" content="Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.">
+<link rel="canonical" href="https://ryankim0709.github.io/">
+<meta name="author" content="Ryan Kim">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf8f4">
+<meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Ryan Kim">
+<meta property="og:title" content="Ryan Kim — Software Engineer">
+<meta property="og:description" content="Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.">
+<meta property="og:url" content="https://ryankim0709.github.io/">
+<meta property="og:image" content="https://ryankim0709.github.io/assets/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ryan Kim — Software Engineer. Seeking Summer 2027 internships.">
+<meta property="og:locale" content="en_US">
+<meta property="profile:first_name" content="Ryan">
+<meta property="profile:last_name" content="Kim">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ryan Kim — Software Engineer">
+<meta name="twitter:description" content="Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.">
+<meta name="twitter:image" content="https://ryankim0709.github.io/assets/og.png">
+<meta name="twitter:image:alt" content="Ryan Kim — Software Engineer. Seeking Summer 2027 internships.">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/ryan-400.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ryan Kim",
+  "givenName": "Ryan",
+  "familyName": "Kim",
+  "url": "https://ryankim0709.github.io/",
+  "image": "https://ryankim0709.github.io/assets/ryan-800.jpg",
+  "jobTitle": "Software Engineer",
+  "email": "ryankim1@berkeley.edu",
+  "description": "Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Palo Alto",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Teserac AI"
+  },
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Berkeley"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rkim0709",
+    "https://github.com/ryankim0709"
+  ],
+  "knowsAbout": [
+    "Python", "TypeScript", "Kotlin", "Java", "SQL",
+    "Django REST Framework", "FastAPI", "LangGraph", "Celery",
+    "PostgreSQL", "TimescaleDB", "Redis",
+    "React", "React Native", "Jetpack Compose",
+    "Keycloak", "OIDC", "WebRTC"
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="shell">
+
+  <header class="hero grid">
+    <div class="hero__aside">
+      <div class="portrait">
+        <picture>
+          <source type="image/webp"
+                  srcset="assets/ryan-400.webp 400w, assets/ryan-800.webp 800w"
+                  sizes="(min-width: 48rem) 96px, 64px">
+          <img class="portrait__img"
+               src="assets/ryan-400.jpg"
+               srcset="assets/ryan-400.jpg 400w, assets/ryan-800.jpg 800w"
+               sizes="(min-width: 48rem) 96px, 64px"
+               width="400" height="400"
+               alt="Ryan Kim"
+               fetchpriority="high"
+               decoding="async">
+        </picture>
+      </div>
+    </div>
+
+    <h1>Ryan Kim</h1>
+
+    <div class="hero__body">
+      <p class="hero__role">Software engineer at Teserac&nbsp;AI. EECS at UC&nbsp;Berkeley, class of 2029. Palo Alto, California.</p>
+
+      <p class="availability">Seeking Summer 2027 software engineering and applied-AI internships.</p>
+
+      <p class="lede">I work on the backend and systems side of a datacenter operations startup, and I built its AR and mobile apps end to end. I like the parts of a system where correctness and performance are the same problem: versioning concurrent edits, keeping a purge from timing out, making a layout reproducible.</p>
+
+      <nav class="actions" aria-label="Résumé and contact">
+        <a class="btn" href="assets/ryan-kim-resume.pdf">Résumé (PDF)</a>
+        <span class="actions__links">
+          <a class="action" href="mailto:ryankim1@berkeley.edu">Email</a>
+          <a class="action" href="https://www.linkedin.com/in/rkim0709" rel="me">LinkedIn</a>
+          <a class="action" href="https://github.com/ryankim0709" rel="me">GitHub</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <section class="grid" aria-labelledby="h-experience">
+      <h2 class="label" id="h-experience">Experience</h2>
+      <div class="col">
+
+        <p class="section-intro">Teserac AI is a datacenter operations startup in Sunnyvale, with four products spanning web, AI agents, mobile, and AR. I started there part-time in March 2026, spent the summer full-time as an intern, and came back part-time in August.</p>
+
+        <dl class="stats" aria-label="Contribution metrics at Teserac AI over six months">
+          <div class="stat">
+            <dt>PRs merged</dt>
+            <dd>227</dd>
+          </div>
+          <div class="stat">
+            <dt>Code reviews</dt>
+            <dd>204</dd>
+          </div>
+          <div class="stat">
+            <dt>Commit rank</dt>
+            <dd>Top 3</dd>
+          </div>
+        </dl>
+        <p class="stats__note">Six months at Teserac&nbsp;AI. Nearly all of that work lives in private company repositories, which is why my public GitHub looks quiet.</p>
+
+        <article class="entry">
+          <h3>Software Engineer</h3>
+          <p class="meta">Teserac AI &middot; Mar&nbsp;&ndash;&nbsp;May 2026 and Aug 2026&nbsp;&ndash;&nbsp;Present &middot; Part-time, 40&nbsp;hrs/week alongside a full-time course load</p>
+
+          <div class="items">
+            <div class="item">
+              <h4>RayNeo X3 Pro AR app</h4>
+              <p>I am the <strong>only engineer</strong> on this hands-free technician app, built in Kotlin and Jetpack Compose. Its voice pipeline runs wake word, then voice activity detection, then speech recognition on an on-prem NVIDIA&nbsp;Orin, resolving navigation intents to local deep links rather than a network round trip. It also has a WebRTC remote-expert mode, on-device SAM2 segmentation, and an offline-first cache whose outbox classifies a failure before retrying.</p>
+            </div>
+
+            <div class="item">
+              <h4>React Native field app</h4>
+              <p>I built the platform&rsquo;s mobile field app end to end and shipped it to <strong>TestFlight</strong>. It has LiveKit voice with barge-in, Keycloak OIDC sign-in at parity with the web app, a root error boundary wired into crash reporting, and CI that produces signed release builds.</p>
+            </div>
+
+            <div class="item">
+              <h4>Auth and SSO architecture</h4>
+              <p>I replaced DNS-based SSO provider inference with a per-organization domain-route map, and collapsed three user-provisioning paths into one endpoint. I also capped sessions on both idle time and absolute age, and added per-request ECDSA&nbsp;P-256 device proofs behind an off&nbsp;/ monitor&nbsp;/ enforce rollout.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <h3>Software Engineering Intern</h3>
+          <p class="meta">Teserac AI &middot; May&nbsp;&ndash;&nbsp;Aug 2026 &middot; Full-time</p>
+
+          <div class="items">
+            <div class="item">
+              <h4>Digital Twin graph API</h4>
+              <p>I re-architected the graph API behind a browser-based single-line-diagram editor for datacenter power topology, splitting it into independently versioned planes and writing the topology and layout-intent planes myself. Operator layout is versioned by integer revision and SHA-256 hash, so two people editing the same diagram can no longer quietly overwrite each other.</p>
+            </div>
+
+            <div class="item">
+              <h4>Deterministic layout and canvas performance</h4>
+              <p>Large diagrams now render roughly <strong>3&times; faster</strong>: a structural topology fingerprint lets live power polling update values without forcing a relayout. I wrote the layout and grouping algorithms underneath &mdash; fixed-order synthetic ELK ports so component rows come out the same way every time, and a clear-then-regroup organize service that leaves no asset unclassified.</p>
+            </div>
+
+            <div class="item">
+              <h4>Async delete pipeline and stuck-job reaper</h4>
+              <p>New telemetry data had pushed a single facility purge past millions of database operations. I moved the cascade delete onto a polled async job that chunks the work into 2,000-operation batches, and the deletes <strong>stopped timing out</strong>. The reaper behind it uses a stale threshold above the task&rsquo;s hard limit, so a purge that is still running is never dispatched twice.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="grid" aria-labelledby="h-projects">
+      <h2 class="label label--head" id="h-projects">Projects</h2>
+      <div class="col">
+        <article class="entry">
+          <h3>AI Marketing Data Pipeline</h3>
+          <p class="meta">Dec 2025&nbsp;&ndash;&nbsp;May 2026</p>
+          <div class="items">
+            <div class="item">
+              <p>I built an end-to-end pipeline that turns raw roofing-job photos and video into short-form marketing scripts with aligned timestamps, using FFmpeg and Deepgram speech-to-text to assemble structured multimodal input for an LLM. I productized it into a client-facing service earning <strong>$650 in monthly recurring revenue</strong>.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid" aria-labelledby="h-skills">
+      <h2 class="label" id="h-skills">Skills</h2>
+      <div class="col">
+        <dl class="skills">
+          <dt>Languages</dt>
+          <dd>Python, TypeScript, Kotlin, Java, SQL, JavaScript, Bash</dd>
+
+          <dt>Backend</dt>
+          <dd>Django REST Framework, FastAPI, LangGraph, Celery, PostgreSQL, TimescaleDB, Redis</dd>
+
+          <dt>Frontend</dt>
+          <dd>React, React&nbsp;Native, React&nbsp;Flow / ELK.js, TanStack Query, Jetpack Compose, Tailwind</dd>
+
+          <dt>Platform</dt>
+          <dd>Keycloak / OIDC, AWS&nbsp;S3, LiveKit + WebRTC, NVIDIA&nbsp;Orin, SAM2, GitHub&nbsp;Actions</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="grid" aria-labelledby="h-education">
+      <h2 class="label label--head" id="h-education">Education</h2>
+      <div class="col">
+        <article class="entry">
+          <h3>University of California, Berkeley</h3>
+          <p class="meta">B.S. Electrical Engineering &amp; Computer Science &middot; GPA 3.82 &middot; Expected May 2029</p>
+          <div class="items">
+            <div class="item">
+              <p>Coursework so far: Data Structures &amp; Algorithms, Machine Structures, Discrete Mathematics, and Circuits &amp; Devices.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid" aria-labelledby="h-contact">
+      <h2 class="label" id="h-contact">Contact</h2>
+      <div class="col">
+        <p class="contact-lead">Email is the fastest way to reach me, and I am happy to walk through any of the work above in detail &mdash; most of it lives in private company repositories, so GitHub shows only a slice.</p>
+        <ul class="contact" role="list">
+          <li><a href="mailto:ryankim1@berkeley.edu">ryankim1@berkeley.edu</a></li>
+          <li><a href="https://www.linkedin.com/in/rkim0709" rel="me">linkedin.com/in/rkim0709</a></li>
+          <li><a href="https://github.com/ryankim0709" rel="me">github.com/ryankim0709</a></li>
+          <li><a href="assets/ryan-kim-resume.pdf">Résumé (PDF)</a></li>
         </ul>
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <h2>Engineering focus</h2>
-        <ul>
-          <li>Reliable AI pipelines: grounded citations, prompt-injection boundaries, deterministic document processing, and evaluations</li>
-          <li>Production systems: concurrent editing, stable graph layout, background jobs, observability, and secure OIDC sessions</li>
-          <li>End-to-end delivery: React and React Native clients, Django APIs, PostgreSQL, Docker, Terraform, CI/CD, and AWS</li>
-        </ul>
-        <p class="note">
-          Most of my recent work is in private company and startup repositories. In 2026, I have merged
-          <strong>~1,350 commits across 15 private repos</strong>, opened 536 PRs, and contributed 206
-          code reviews.
-        </p>
-      </section>
+  </main>
 
-      <section>
-        <h2>Core technologies</h2>
-        <ul class="tech-list">
-          <li><strong>Languages:</strong> Python, TypeScript, Kotlin, Swift, SQL</li>
-          <li><strong>Application:</strong> Django REST Framework, React, React Native, Jetpack Compose, Celery, PostgreSQL, Redis</li>
-          <li><strong>Infrastructure &amp; AI:</strong> AWS, Terraform, Docker, OIDC/Keycloak, LiveKit/WebRTC, NVIDIA Orin</li>
-        </ul>
-      </section>
+  <footer class="grid">
+    <div class="col">
+      <p class="colophon">Ryan Kim &middot; Palo Alto, California &middot; Updated September 2026</p>
+    </div>
+  </footer>
 
-      <footer class="contact">
-        <h2>Contact</h2>
-        <p>
-          <a href="https://linkedin.com/in/rkim0709">LinkedIn</a>
-          ·
-          <a href="mailto:ryankim1@berkeley.edu">ryankim1@berkeley.edu</a>
-          ·
-          <a href="https://github.com/ryankim0709">GitHub</a>
-        </p>
-      </footer>
-    </main>
-  </body>
+</div>
+</body>
 </html>

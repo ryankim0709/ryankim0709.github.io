@@ -1,98 +1,673 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* =========================================================================
+   Ryan Kim — personal site
+   Editorial / typographic. One column of prose, section labels in the left
+   margin, hairline rules as the only dividers, one accent used functionally.
+
+   Contrast ratios in the comments are computed against the mode's --bg.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. Tokens — complete light palette
+   ------------------------------------------------------------------------- */
+:root {
+  color-scheme: light dark;
+
+  /* Colour. --bg is tuned to the headshot's studio backdrop (#f8f7f3),
+     a 1.01:1 match, so the portrait has no cut-out edge in light mode. */
+  --bg:            #faf8f4;
+  --ink:           #1a1917;  /* 16.56:1  headings, numbers, emphasis */
+  --ink-2:         #565248;  /*  7.34:1  body prose */
+  --ink-3:         #655f52;  /*  5.98:1  labels, meta, captions */
+  --rule:          #d2caba;  /*  1.54:1  hairline section dividers */
+  --rule-strong:   #bdb5a4;  /*  1.92:1  the stat strip */
+  --accent:        #9a3b0f;  /*  6.59:1  links, button fill, focus ring */
+  --accent-strong: #7a2e0b;  /*  8.91:1  hover / active */
+  --on-accent:     #faf8f4;  /*  6.59:1  on --accent */
+  --select-bg:     rgba(154, 59, 15, 0.16);
+
+  /* Portrait treatment. Light: a quiet 2.14:1 ring gives the crop an edge
+     without a hard cut-out. Dark: see the override block. */
+  --img-ring:      rgba(26, 25, 23, 0.34);
+  --img-filter:    none;
+  --img-veil:      none;
+
+  /* Type */
+  --font-sans: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --t-label: 0.75rem;    /* 12px — uppercase section + stat labels */
+  --t-meta:  0.875rem;   /* 14px — dates, notes, colophon */
+  --t-body:  1.0625rem;  /* 17px — prose, links, buttons */
+  --t-sub:   1.1875rem;  /* 19px — h4 item titles */
+  --t-lede:  clamp(1.0625rem, 1rem + 0.28vw, 1.1875rem);
+  --t-h3:    clamp(1.375rem, 1.28rem + 0.38vw, 1.5rem);
+  --t-h1:    clamp(2.5rem, 1.35rem + 5.2vw, 4.5rem);
+  --t-stat:  clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem);
+
+  /* Space — every margin, padding and gap on the page comes from this ramp */
+  --s1: 0.25rem;  /*  4 */
+  --s2: 0.5rem;   /*  8 */
+  --s3: 0.75rem;  /* 12 */
+  --s4: 1rem;     /* 16 */
+  --s5: 1.5rem;   /* 24 */
+  --s6: 2rem;     /* 32 */
+  --s7: 2.5rem;   /* 40 */
+  --s8: 3rem;     /* 48 */
+  --s9: 4rem;     /* 64 */
+
+  /* Shell. 9.5 + 3 + 33 + 2.5 + 2.5 = 50.5rem, so
+     once the shell reaches its max the two columns fill the content box
+     exactly, with nothing left over.
+     --col-max is also the prose measure: one number, one unit, no bypasses.
+     At 17px body that is 528px ≈ 62 characters per line. */
+  --shell-max: 50.5rem;
+  --gutter:    9.5rem;
+  --gap:       3rem;
+  --col-max:   33rem;
+
+  --portrait-size: 4rem;
+}
+
+/* -------------------------------------------------------------------------
+   2. Dark — token overrides only
+   ------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:            #131211;
+    --ink:           #edeae2;  /* 15.56:1 */
+    --ink-2:         #b3aea3;  /*  8.46:1 — raised vs light: thin light-on-dark
+                                             strokes lose perceived density */
+    --ink-3:         #a09a8e;  /*  6.69:1 */
+    --rule:          #403b33;  /*  1.69:1 */
+    --rule-strong:   #524c42;  /*  2.20:1 */
+    --accent:        #e89a6b;  /*  8.26:1 — re-picked hue, not a mirror */
+    --accent-strong: #f2b389;  /* 10.32:1 */
+    --on-accent:     #131211;  /*  8.26:1 on --accent */
+    --select-bg:     rgba(232, 154, 107, 0.22);
+
+    /* The studio backdrop is #fdfdf9 — 18.4:1 against this page, i.e. the
+       brightest object on screen. A brightness trim alone cannot fix that
+       (0.72 still leaves 9.2:1). So: trim modestly to keep the face natural,
+       then feather the outer ring of the disc into the page — the rim lands
+       at 1.4:1 and the mid-band at 3.5:1, so the portrait reads at roughly
+       --ink-2 weight instead of outshouting the headline. */
+    --img-ring:      rgba(237, 234, 226, 0.12);
+    --img-filter:    brightness(0.86) saturate(0.96);
+    --img-veil:      radial-gradient(closest-side circle at 50% 50%,
+                       rgba(19, 18, 17, 0) 56%,
+                       rgba(19, 18, 17, 0.55) 82%,
+                       rgba(19, 18, 17, 0.88) 100%);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   3. Reset and base
+   ------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #1a1a1a;
-  background: #fafafa;
+  background: var(--bg);
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.7;
+  font-weight: 400;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.page {
-  max-width: 42rem;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
+h1, h2, h3, h4, p, dl, dd, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+strong { color: var(--ink); font-weight: 600; }
+
+::selection { background: var(--select-bg); color: var(--ink); }
+
+/* -------------------------------------------------------------------------
+   4. Links, focus, skip
+   ------------------------------------------------------------------------- */
+a {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 120ms ease, background-color 120ms ease;
+}
+a:hover { color: var(--accent-strong); }
+
+/* 3px of --bg sits between the ring and the button fill, so the ring still
+   reads at 6.59:1 even on the accent-filled .btn. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--s3);
+  top: -6rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--s4);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: var(--t-body);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: top 140ms ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible { top: var(--s3); color: var(--on-accent); }
+
+/* -------------------------------------------------------------------------
+   5. Shell and the editorial grid
+   ------------------------------------------------------------------------- */
+.shell {
+  width: 100%;
+  max-width: var(--shell-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--s5), 5vw, var(--s7));
+  padding-bottom: clamp(var(--s8), 8vw, var(--s9));
+}
+
+/* Section label above the content on narrow screens; in the left margin
+   from 48rem up. One grid, used by the hero for the portrait as well. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--s2);
+  align-items: start;
+  /* Below 48rem there is no gutter, so the grid would run the full width of
+     the shell while every paragraph stops at --col-max. That leaves the
+     section hairlines overshooting the prose by up to 160px around 700px.
+     Cap the grid at the measure instead: rules and text end together. */
+  max-width: var(--col-max);
+  margin-inline: auto;
+}
+
+.col, .hero__body, .hero h1 { min-width: 0; }
+
+main > section {
+  margin-top: clamp(var(--s7), 5.5vw, var(--s8));
+  padding-top: clamp(var(--s6), 4.5vw, var(--s7));
+  border-top: 1px solid var(--rule);
+}
+
+/* -------------------------------------------------------------------------
+   6. Section labels
+   ------------------------------------------------------------------------- */
+.label {
+  font-size: var(--t-label);
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  /* Optical: a 12px/1.7 cap-top sits ~2px above a 17px/1.7 first line. */
+  padding-top: 0.125rem;
+}
+/* …but level with an h3 first line, which has much tighter half-leading. */
+.label--head { padding-top: 0; }
+
+/* -------------------------------------------------------------------------
+   7. Hero
+   ------------------------------------------------------------------------- */
+.hero {
+  padding-top: clamp(var(--s7), 8vw, var(--s9));
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--s3);
+  row-gap: 0;
+}
+
+.hero__aside { grid-column: 1; grid-row: 1; }
+.hero h1     { grid-column: 2; grid-row: 1; align-self: center; }
+.hero__body  { grid-column: 1 / -1; grid-row: 2; margin-top: var(--s5); }
+
+.portrait {
+  position: relative;
+  /* rem-sized, but never more than a fifth of the viewport. At a large
+     browser default font size the portrait yields; the name never does.
+     A no-op at every width from 320px up with a 16px root. */
+  width: min(var(--portrait-size), 20vw);
+  height: min(var(--portrait-size), 20vw);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--img-ring);
+}
+.portrait__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: var(--img-filter);
+}
+.portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--img-veil);
+  pointer-events: none;
 }
 
 h1 {
-  margin: 0 0 0.5rem;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  margin: 2.5rem 0 0.75rem;
-  font-size: 0.85rem;
+  font-size: var(--t-h1);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #555;
+  line-height: 0.98;
+  letter-spacing: -0.038em;
+  color: var(--ink);
+  /* text-wrap here and below is a progressive enhancement — Firefox < 121
+     and older Safari drop it entirely. Nothing may depend on it to fit. */
+  text-wrap: balance;
+  /* optical left alignment: cancels the R's sidebearing at display size */
+  margin-inline-start: -0.02em;
 }
 
-p {
-  margin: 0 0 1rem;
+.hero__role {
+  max-width: var(--col-max);
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
 }
 
-ul {
-  margin: 0;
-  padding-left: 1.25rem;
+/* The recruiter's line. Loudest thing on the page after the name: the only
+   static accent mark, hung in the margin so the text stays flush left. */
+.availability {
+  position: relative;
+  margin-top: var(--s5);
+  max-width: var(--col-max);
+  font-size: var(--t-lede);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.availability::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--s4) - 2px);
+  top: 0.28em;
+  bottom: 0.28em;
+  width: 2px;
+  background: var(--accent);
 }
 
-li {
-  margin-bottom: 0.75rem;
+.lede {
+  margin-top: var(--s5);
+  max-width: var(--col-max);
+  font-size: var(--t-lede);
+  line-height: 1.6;
+  color: var(--ink);
+  text-wrap: pretty;
 }
 
-li:last-child {
-  margin-bottom: 0;
+/* -------------------------------------------------------------------------
+   8. Action row
+   ------------------------------------------------------------------------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s5);
+  margin-top: var(--s6);
+}
+/* The three text links wrap as one unit, so the last of them is never left
+   orphaned on a line by itself under the button. */
+.actions__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s5);
+}
+/* Flex items default to min-width:auto, which at a large browser default
+   font size let a single long link push the page sideways. */
+.actions > *,
+.actions__links > * { min-width: 0; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--s4);
+  border-radius: 2px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: var(--t-body);
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover { background: var(--accent-strong); color: var(--on-accent); }
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--t-body);
+  overflow-wrap: anywhere;
+}
+
+/* -------------------------------------------------------------------------
+   9. Entries
+   ------------------------------------------------------------------------- */
+/* Measure and wrapping are shared; colour is not. `.col > p` (0,1,1) would
+   otherwise outrank the caption greys on .stats__note and .colophon (0,1,0)
+   and render both at body-prose weight. */
+.section-intro,
+.col > p {
+  max-width: var(--col-max);
+  text-wrap: pretty;
+}
+.section-intro { color: var(--ink-2); }
+
+.entry { margin-top: var(--s8); }
+.col > .entry:first-child { margin-top: 0; }
+
+h3 {
+  max-width: var(--col-max);
+  font-size: var(--t-h3);
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-wrap: balance;
 }
 
 .meta {
-  color: #444;
+  margin-top: var(--s2);
+  max-width: var(--col-max);
+  font-size: var(--t-meta);
+  line-height: 1.5;
+  color: var(--ink-3);
+  text-wrap: pretty;
 }
 
-.intro {
-  margin-top: 1.25rem;
-}
+.items { margin-top: var(--s5); }
+.item + .item { margin-top: var(--s5); }
 
-.availability {
+h4 {
+  max-width: var(--col-max);
+  margin-bottom: var(--s1);
+  font-size: var(--t-sub);
   font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  text-wrap: balance;
 }
 
-.note {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #444;
+.item p {
+  max-width: var(--col-max);
+  color: var(--ink-2);
+  text-wrap: pretty;
 }
 
-.work-list li {
-  margin-bottom: 1rem;
+/* -------------------------------------------------------------------------
+   10. Stat strip — open hairlines, no box, no card
+   ------------------------------------------------------------------------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s2) var(--s4);
+  margin-top: var(--s6);
+  padding-block: var(--s4);
+  max-width: var(--col-max);
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+}
+/* DOM order stays dt → dd for assistive tech; the figure reads first.
+   flex-end packs toward the top in column-reverse, so the three figures sit
+   on one line even when a label wraps. */
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--s1);
+}
+.stat dt {
+  font-size: var(--t-label);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.stat dd {
+  margin: 0;
+  font-size: var(--t-stat);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
-a {
-  color: #0969da;
-  text-decoration: none;
+.stats__note {
+  margin-top: var(--s3);
+  max-width: var(--col-max);
+  font-size: var(--t-meta);
+  line-height: 1.55;
+  color: var(--ink-3);
+  text-wrap: pretty;
 }
 
-a:hover {
-  text-decoration: underline;
+/* -------------------------------------------------------------------------
+   11. Skills — a sub-head style of its own, never a second gutter label
+   ------------------------------------------------------------------------- */
+.skills {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: var(--s1);
+  max-width: var(--col-max);
 }
+.skills dt {
+  font-size: var(--t-body);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.skills dd {
+  margin: 0 0 var(--s4);
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+.skills dd:last-of-type { margin-bottom: 0; }
+
+/* -------------------------------------------------------------------------
+   12. Footer
+   ------------------------------------------------------------------------- */
+.contact-lead { color: var(--ink-2); }
 
 .contact {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e0e0e0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s1) var(--s5);
+  margin-top: var(--s3);
+  max-width: var(--col-max);
+}
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--t-body);
+  overflow-wrap: anywhere;
 }
 
-.contact h2 {
-  margin-top: 0;
+.colophon {
+  margin-top: var(--s5);
+  max-width: var(--col-max);
+  font-size: var(--t-meta);
+  line-height: 1.55;
+  color: var(--ink-3);
 }
 
-.contact p {
-  margin: 0;
+/* -------------------------------------------------------------------------
+   13. Wider viewports
+   ------------------------------------------------------------------------- */
+/* Between 22rem and 26rem the three tracks are just too narrow for
+   "Code reviews" at 12px, so one label wrapped and the strip went ragged.
+   Trim the label a step there. Below 22rem no size fits and all three wrap
+   together, which reads as deliberate; above 26rem they fit at full size. */
+@media (min-width: 22rem) and (max-width: 25.99rem) {
+  .stat dt { font-size: 0.6875rem; letter-spacing: 0.04em; }
+}
+
+@media (min-width: 26rem) {
+  .stats { gap: var(--s2) var(--s5); }
+}
+
+@media (min-width: 42rem) {
+  .skills {
+    grid-template-columns: 7rem minmax(0, 1fr);
+    column-gap: var(--s5);
+    row-gap: var(--s4);
+    align-items: baseline;
+  }
+  .skills dd { margin-bottom: 0; }
+  .contact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Labels move into the left margin; the portrait takes the same column.
+   48rem is the narrowest width at which gutter + gap + prose column still
+   leaves the column ~490px (≈58 characters) — below that it would starve. */
+@media (min-width: 48rem) {
+  :root { --portrait-size: 6rem; }
+
+  .grid {
+    grid-template-columns: var(--gutter) minmax(0, var(--col-max));
+    max-width: none;
+    margin-inline: 0;
+  }
+  footer.grid > .col { grid-column: 2; }
+
+  .hero { column-gap: var(--gap); }
+  .hero__aside { padding-top: 0.4rem; }
+  .hero h1     { align-self: start; }
+  .hero__body  { grid-column: 2; }
+}
+
+/* -------------------------------------------------------------------------
+   14. Motion
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   15. Print — a clean black-on-white record
+   ------------------------------------------------------------------------- */
+@page { margin: 15mm 14mm; }
+
+@media print {
+  /* rescale every rem-based size at once */
+  html { font-size: 10.5pt; }
+
+  :root {
+    --bg:            #ffffff;
+    --ink:           #000000;
+    --ink-2:         #1c1c1c;
+    --ink-3:         #444444;
+    --rule:          #bbbbbb;
+    --rule-strong:   #888888;
+    --accent:        #000000;
+    --accent-strong: #000000;
+    --on-accent:     #ffffff;
+    --select-bg:     transparent;
+    --img-ring:      rgba(0, 0, 0, 0.35);
+    --img-filter:    none;
+    --img-veil:      none;
+    --portrait-size: 20mm;
+  }
+
+  body {
+    background: #fff;
+    color: var(--ink-2);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .shell { max-width: none; padding: 0; }
+  .skip-link, .btn { display: none; }
+
+  /* 8em gutter + 1.5em gap + a 34em (~68 character) measure. Clearing the
+     measure entirely would hand the prose the full 188mm text block and give
+     up the one typographic decision the page is built on — and the section
+     hairlines would then overshoot the text they divide. */
+  .grid {
+    grid-template-columns: 8em minmax(0, 34em);
+    column-gap: 1.5em;
+    row-gap: 0.3em;
+    max-width: 43.5em;
+    margin-inline: 0;
+  }
+
+  .hero { padding-top: 0; column-gap: 1.5em; }
+  .hero__body { grid-column: 2; margin-top: 0.6em; }
+
+  h1 { font-size: 24pt; margin-inline-start: 0; }
+  h3 { font-size: 12.5pt; }
+  h4 { font-size: 10.5pt; }
+  .hero__role, .availability, .lede { font-size: 10.5pt; }
+  /* Chrome prints with background graphics off by default, which would drop
+     the accent mark on the most important line of the page. A hanging border
+     survives that; the negative margin keeps the text flush left. */
+  .availability {
+    margin-top: 0.6em;
+    margin-left: -0.7em;
+    padding-left: 0.6em;
+    border-left: 1.5pt solid #000;
+  }
+  .availability::before { display: none; }
+  .lede { margin-top: 0.5em; color: var(--ink-2); }
+
+  .actions, .actions__links { gap: 0.1em 1.2em; }
+  .actions { margin-top: 0.8em; }
+  .action { min-height: 0; font-size: 9.5pt; }
+
+  .stats { margin-top: 0.9em; padding-block: 0.5em; }
+  .stat dd { font-size: 14pt; }
+  .stats__note { margin-top: 0.5em; }
+
+  .entry { margin-top: 1.1em; }
+  .items { margin-top: 0.6em; }
+  .item + .item { margin-top: 0.6em; }
+
+  .contact { gap: 0 1.5em; margin-top: 0.5em; }
+  .contact a { min-height: 0; font-size: 9.5pt; }
+  .colophon { display: none; }
+
+  main > section {
+    margin-top: 1em;
+    padding-top: 0.8em;
+    border-top: 0.5pt solid var(--rule);
+  }
+  /* Keep Contact whole rather than let it orphan onto a near-empty last page. */
+  main > section:last-of-type { break-inside: avoid; page-break-inside: avoid; }
+
+  /* The 34em column above is now the measure, so these fill their track. */
+  .hero__role, .availability, .lede, .meta, .section-intro, .item p,
+  .col > p, .skills, .stats, .stats__note, .contact,
+  h3, h4 { max-width: none; }
+
+  a { color: #000; text-decoration: underline; }
+
+  .item, .stats, .entry > h3 { break-inside: avoid; page-break-inside: avoid; }
+  h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
