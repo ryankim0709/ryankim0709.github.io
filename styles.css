@@ -358,6 +358,21 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s5);
+  margin-top: var(--s5);
+  font-size: var(--t-meta);
+}
+.section-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+h2[id] { scroll-margin-top: var(--s5); }
+
 /* -------------------------------------------------------------------------
    9. Entries
    ------------------------------------------------------------------------- */
@@ -515,10 +530,7 @@ h4 {
 /* -------------------------------------------------------------------------
    13. Wider viewports
    ------------------------------------------------------------------------- */
-/* Between 22rem and 26rem the three tracks are just too narrow for
-   "Code reviews" at 12px, so one label wrapped and the strip went ragged.
-   Trim the label a step there. Below 22rem no size fits and all three wrap
-   together, which reads as deliberate; above 26rem they fit at full size. */
+/* Slightly smaller labels keep the three result columns legible on phones. */
 @media (min-width: 22rem) and (max-width: 25.99rem) {
   .stat dt { font-size: 0.6875rem; letter-spacing: 0.04em; }
 }
@@ -529,7 +541,7 @@ h4 {
 
 @media (min-width: 42rem) {
   .skills {
-    grid-template-columns: 7rem minmax(0, 1fr);
+    grid-template-columns: 9rem minmax(0, 1fr);
     column-gap: var(--s5);
     row-gap: var(--s4);
     align-items: baseline;
@@ -603,7 +615,7 @@ h4 {
   }
 
   .shell { max-width: none; padding: 0; }
-  .skip-link, .btn { display: none; }
+  .skip-link, .btn, .section-nav { display: none; }
 
   /* 8em gutter + 1.5em gap + a 34em (~68 character) measure. Clearing the
      measure entirely would hand the prose the full 188mm text block and give

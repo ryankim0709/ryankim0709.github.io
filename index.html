@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Ryan Kim — Software Engineer</title>
-<meta name="description" content="Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.">
+<meta name="description" content="Software engineer at Teserac AI and UC Berkeley EECS student. Building datacenter software, an AI tutor, and tools for real estate due diligence. Seeking Summer 2027 internships.">
 <link rel="canonical" href="https://ryankim0709.github.io/">
 <meta name="author" content="Ryan Kim">
 
@@ -17,7 +17,7 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Ryan Kim">
 <meta property="og:title" content="Ryan Kim — Software Engineer">
-<meta property="og:description" content="Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.">
+<meta property="og:description" content="Software engineer at Teserac AI and UC Berkeley EECS student. Building datacenter software, an AI tutor, and tools for real estate due diligence. Seeking Summer 2027 internships.">
 <meta property="og:url" content="https://ryankim0709.github.io/">
 <meta property="og:image" content="https://ryankim0709.github.io/assets/og.png">
 <meta property="og:image:type" content="image/png">
@@ -30,7 +30,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ryan Kim — Software Engineer">
-<meta name="twitter:description" content="Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.">
+<meta name="twitter:description" content="Software engineer at Teserac AI and UC Berkeley EECS student. Building datacenter software, an AI tutor, and tools for real estate due diligence. Seeking Summer 2027 internships.">
 <meta name="twitter:image" content="https://ryankim0709.github.io/assets/og.png">
 <meta name="twitter:image:alt" content="Ryan Kim — Software Engineer. Seeking Summer 2027 internships.">
 
@@ -53,7 +53,7 @@
   "image": "https://ryankim0709.github.io/assets/ryan-800.jpg",
   "jobTitle": "Software Engineer",
   "email": "ryankim1@berkeley.edu",
-  "description": "Software engineer at Teserac AI and EECS student at UC Berkeley, class of 2029. Seeking Summer 2027 software engineering and applied-AI internships.",
+  "description": "Software engineer at Teserac AI and UC Berkeley EECS student. Building datacenter software, an AI tutor, and tools for real estate due diligence. Seeking Summer 2027 internships.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Palo Alto",
@@ -73,11 +73,10 @@
     "https://github.com/ryankim0709"
   ],
   "knowsAbout": [
-    "Python", "TypeScript", "Kotlin", "Java", "SQL",
+    "Python", "TypeScript", "Kotlin", "Java", "C", "SQL",
     "Django REST Framework", "FastAPI", "LangGraph", "Celery",
-    "PostgreSQL", "TimescaleDB", "Redis",
-    "React", "React Native", "Jetpack Compose",
-    "Keycloak", "OIDC", "WebRTC"
+    "PostgreSQL", "Redis", "React", "React Native",
+    "Docker", "AWS", "Terraform", "GitHub Actions", "pytest"
   ]
 }
 </script>
@@ -114,7 +113,7 @@
 
       <p class="availability">Seeking Summer 2027 software engineering and applied-AI internships.</p>
 
-      <p class="lede">I work on the backend and systems side of a datacenter operations startup, and I built its AR and mobile apps end to end. I like the parts of a system where correctness and performance are the same problem: versioning concurrent edits, keeping a purge from timing out, making a layout reproducible.</p>
+      <p class="lede">I build software for datacenter operations at Teserac AI, from backend systems and internal tools to mobile apps. Outside work, I&rsquo;m building an AI tutor that teaches on a whiteboard and a real estate due diligence tool that connects findings to source evidence.</p>
 
       <nav class="actions" aria-label="Résumé and contact">
         <a class="btn" href="assets/ryan-kim-resume.pdf">Résumé (PDF)</a>
@@ -123,6 +122,13 @@
           <a class="action" href="https://www.linkedin.com/in/rkim0709" rel="me">LinkedIn</a>
           <a class="action" href="https://github.com/ryankim0709" rel="me">GitHub</a>
         </span>
+      </nav>
+      <nav class="section-nav" aria-label="Page sections">
+        <a href="#h-experience">Experience</a>
+        <a href="#h-projects">Projects</a>
+        <a href="#h-skills">Skills</a>
+        <a href="#h-education">Education</a>
+        <a href="#h-contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -133,42 +139,42 @@
       <h2 class="label" id="h-experience">Experience</h2>
       <div class="col">
 
-        <p class="section-intro">Teserac AI is a datacenter operations startup in Sunnyvale, with four products spanning web, AI agents, mobile, and AR. I started there part-time in March 2026, spent the summer full-time as an intern, and came back part-time in August.</p>
+        <p class="section-intro">Teserac AI builds software for datacenter operations. I joined the Sunnyvale team part-time in March 2026, spent the summer as a full-time intern, and returned part-time in August.</p>
 
-        <dl class="stats" aria-label="Contribution metrics at Teserac AI over six months">
+        <dl class="stats" aria-label="Selected results at Teserac AI">
           <div class="stat">
-            <dt>PRs merged</dt>
-            <dd>227</dd>
+            <dt>Cached diagram time</dt>
+            <dd>125 ms</dd>
           </div>
           <div class="stat">
-            <dt>Code reviews</dt>
-            <dd>204</dd>
+            <dt>Faster uncached requests</dt>
+            <dd>4.5&times;</dd>
           </div>
           <div class="stat">
-            <dt>Commit rank</dt>
-            <dd>Top 3</dd>
+            <dt>Internal mobile users</dt>
+            <dd>10</dd>
           </div>
         </dl>
-        <p class="stats__note">Six months at Teserac&nbsp;AI. Nearly all of that work lives in private company repositories, which is why my public GitHub looks quiet.</p>
+        <p class="stats__note">For 1,000-component power diagrams, position caching reduced combined layout-computation and API-response time from 1,886 ms to 125 ms.</p>
 
         <article class="entry">
           <h3>Software Engineer</h3>
-          <p class="meta">Teserac AI &middot; Mar&nbsp;&ndash;&nbsp;May 2026 and Aug 2026&nbsp;&ndash;&nbsp;Present &middot; Part-time, 40&nbsp;hrs/week alongside a full-time course load</p>
+          <p class="meta">Teserac AI &middot; Mar&nbsp;&ndash;&nbsp;May 2026 and Aug 2026&nbsp;&ndash;&nbsp;Present &middot; Part-time</p>
 
           <div class="items">
             <div class="item">
-              <h4>RayNeo X3 Pro AR app</h4>
-              <p>I am the <strong>only engineer</strong> on this hands-free technician app, built in Kotlin and Jetpack Compose. Its voice pipeline runs wake word, then voice activity detection, then speech recognition on an on-prem NVIDIA&nbsp;Orin, resolving navigation intents to local deep links rather than a network round trip. It also has a WebRTC remote-expert mode, on-device SAM2 segmentation, and an offline-first cache whose outbox classifies a failure before retrying.</p>
+              <h4>Internal superadmin portal</h4>
+              <p>As the <strong>primary engineer</strong>, I built a React/TypeScript and Django portal that brings support, tenant provisioning, and AI configuration together across four environments. I deployed it on AWS ECS Fargate with Terraform.</p>
+            </div>
+
+            <div class="item">
+              <h4>Scoped support access</h4>
+              <p>I designed customer-support impersonation with single-use sign-in links and organization-scoped sessions. Access controls cover HTTP, WebSockets, and AI-agent calls, backed by PostgreSQL row-level security and audit logging.</p>
             </div>
 
             <div class="item">
               <h4>React Native field app</h4>
-              <p>I built the platform&rsquo;s mobile field app end to end and shipped it to <strong>TestFlight</strong>. It has LiveKit voice with barge-in, Keycloak OIDC sign-in at parity with the web app, a root error boundary wired into crash reporting, and CI that produces signed release builds.</p>
-            </div>
-
-            <div class="item">
-              <h4>Auth and SSO architecture</h4>
-              <p>I replaced DNS-based SSO provider inference with a per-organization domain-route map, and collapsed three user-provisioning paths into one endpoint. I also capped sessions on both idle time and absolute age, and added per-request ECDSA&nbsp;P-256 device proofs behind an off&nbsp;/ monitor&nbsp;/ enforce rollout.</p>
+              <p>I shipped a field app to <strong>10 internal users via TestFlight</strong>, with interruptible voice responses and shared authentication across web and mobile.</p>
             </div>
           </div>
         </article>
@@ -179,18 +185,18 @@
 
           <div class="items">
             <div class="item">
-              <h4>Digital Twin graph API</h4>
-              <p>I re-architected the graph API behind a browser-based single-line-diagram editor for datacenter power topology, splitting it into independently versioned planes and writing the topology and layout-intent planes myself. Operator layout is versioned by integer revision and SHA-256 hash, so two people editing the same diagram can no longer quietly overwrite each other.</p>
+              <h4>Faster power diagrams</h4>
+              <p>I cut combined layout-computation and API-response time for 1,000-component datacenter power diagrams from <strong>1,886 ms to 125 ms</strong> through position caching. Uncached requests became <strong>4.5&times; faster</strong>.</p>
             </div>
 
             <div class="item">
-              <h4>Deterministic layout and canvas performance</h4>
-              <p>Large diagrams now render roughly <strong>3&times; faster</strong>: a structural topology fingerprint lets live power polling update values without forcing a relayout. I wrote the layout and grouping algorithms underneath &mdash; fixed-order synthetic ELK ports so component rows come out the same way every time, and a clear-then-regroup organize service that leaves no asset unclassified.</p>
+              <h4>Database capacity during deletions</h4>
+              <p>I batched and paced millions of database operations during organization deletions, keeping database CPU at <strong>roughly 40% or below</strong> to preserve capacity for other services.</p>
             </div>
 
             <div class="item">
-              <h4>Async delete pipeline and stuck-job reaper</h4>
-              <p>New telemetry data had pushed a single facility purge past millions of database operations. I moved the cascade delete onto a polled async job that chunks the work into 2,000-operation batches, and the deletes <strong>stopped timing out</strong>. The reaper behind it uses a stale threshold above the task&rsquo;s hard limit, so a purge that is still running is never dispatched twice.</p>
+              <h4>Shared Microsoft SSO</h4>
+              <p>I replaced per-tenant, per-environment SAML setup with shared Microsoft SSO and email-based tenant routing. Using Keycloak/OIDC, I unified three account-provisioning workflows into one endpoint.</p>
             </div>
           </div>
         </article>
@@ -202,11 +208,31 @@
       <h2 class="label label--head" id="h-projects">Projects</h2>
       <div class="col">
         <article class="entry">
+          <h3>Doodlr</h3>
+          <p class="meta">AI tutoring platform &middot; May 2026&nbsp;&ndash;&nbsp;Present</p>
+          <div class="items">
+            <div class="item">
+              <p>I built an AI tutor with LiveKit and Deepgram that pairs <strong>streamed drawing updates with spoken explanations</strong>, using students&rsquo; existing whiteboard work as context. I built the Django APIs for session access and recording, and provisioned AWS infrastructure with Terraform to run containerized services on ECS Fargate.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <h3>Duedi</h3>
+          <p class="meta">Real estate due diligence &middot; Jul 2026&nbsp;&ndash;&nbsp;Present</p>
+          <div class="items">
+            <div class="item">
+              <p>I built a property document analysis platform that <strong>links report findings to source passages</strong>, with React/TypeScript and Django deployed on AWS. Its LangGraph workflow retrieves evidence across documents, validates quotes against OCR text, and keeps unresolved risks visible when evidence conflicts or is incomplete.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="entry">
           <h3>AI Marketing Data Pipeline</h3>
           <p class="meta">Dec 2025&nbsp;&ndash;&nbsp;May 2026</p>
           <div class="items">
             <div class="item">
-              <p>I built an end-to-end pipeline that turns raw roofing-job photos and video into short-form marketing scripts with aligned timestamps, using FFmpeg and Deepgram speech-to-text to assemble structured multimodal input for an LLM. I productized it into a client-facing service earning <strong>$650 in monthly recurring revenue</strong>.</p>
+              <p>I built a service that turned roofing-job photos and videos into marketing scripts using FFmpeg, Deepgram, and LLMs. It earned <strong>$650/month from one paying customer</strong> while active.</p>
             </div>
           </div>
         </article>
@@ -218,16 +244,16 @@
       <div class="col">
         <dl class="skills">
           <dt>Languages</dt>
-          <dd>Python, TypeScript, Kotlin, Java, SQL, JavaScript, Bash</dd>
+          <dd>Python, TypeScript, Kotlin, Java, C, SQL</dd>
 
-          <dt>Backend</dt>
-          <dd>Django REST Framework, FastAPI, LangGraph, Celery, PostgreSQL, TimescaleDB, Redis</dd>
+          <dt>Backend &amp; data</dt>
+          <dd>Django REST Framework, FastAPI, LangGraph, Celery, PostgreSQL, Redis</dd>
 
-          <dt>Frontend</dt>
-          <dd>React, React&nbsp;Native, React&nbsp;Flow / ELK.js, TanStack Query, Jetpack Compose, Tailwind</dd>
+          <dt>Frontend &amp; mobile</dt>
+          <dd>React, React&nbsp;Native</dd>
 
-          <dt>Platform</dt>
-          <dd>Keycloak / OIDC, AWS&nbsp;S3, LiveKit + WebRTC, NVIDIA&nbsp;Orin, SAM2, GitHub&nbsp;Actions</dd>
+          <dt>Infrastructure &amp; testing</dt>
+          <dd>Docker, AWS, Terraform, GitHub&nbsp;Actions, pytest</dd>
         </dl>
       </div>
     </section>
@@ -240,7 +266,7 @@
           <p class="meta">B.S. Electrical Engineering &amp; Computer Science &middot; GPA 3.82 &middot; Expected May 2029</p>
           <div class="items">
             <div class="item">
-              <p>Coursework so far: Data Structures &amp; Algorithms, Machine Structures, Discrete Mathematics, and Circuits &amp; Devices.</p>
+              <p>Coursework: Data Structures &amp; Algorithms, Machine Structures, and Discrete Mathematics.</p>
             </div>
           </div>
         </article>
@@ -250,7 +276,7 @@
     <section class="grid" aria-labelledby="h-contact">
       <h2 class="label" id="h-contact">Contact</h2>
       <div class="col">
-        <p class="contact-lead">Email is the fastest way to reach me, and I am happy to walk through any of the work above in detail &mdash; most of it lives in private company repositories, so GitHub shows only a slice.</p>
+        <p class="contact-lead">I&rsquo;m looking for Summer 2027 software engineering and applied-AI internships. Email is the fastest way to reach me, and I&rsquo;m happy to walk through my work in more detail.</p>
         <ul class="contact" role="list">
           <li><a href="mailto:ryankim1@berkeley.edu">ryankim1@berkeley.edu</a></li>
           <li><a href="https://www.linkedin.com/in/rkim0709" rel="me">linkedin.com/in/rkim0709</a></li>
@@ -264,7 +290,7 @@
 
   <footer class="grid">
     <div class="col">
-      <p class="colophon">Ryan Kim &middot; Palo Alto, California &middot; Updated September 2026</p>
+      <p class="colophon">Ryan Kim &middot; Palo Alto, California &middot; Updated October 2026</p>
     </div>
   </footer>
 
