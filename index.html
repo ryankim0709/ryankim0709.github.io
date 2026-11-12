@@ -127,7 +127,26 @@
     <div class="availability"><span class="status-dot" aria-hidden="true"></span><p>Looking for <strong>Summer 2027</strong> software engineering &amp; applied-AI internships.</p><a href="assets/ryan-kim-resume.pdf">View résumé <span aria-hidden="true">↗</span></a></div>
 
     <section class="section projects" aria-labelledby="h-projects">
-      <div class="section-heading"><div><p class="eyebrow">01 / Selected projects</p><h2 id="h-projects">Things I’m building<span class="accent">.</span></h2></div><p>Voice, whiteboards, documents.<br>Different inputs. Useful software.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">01 / Selected projects</p><h2 id="h-projects">Things I’m building<span class="accent">.</span></h2></div><p>Wildfires, whiteboards, documents. <br>Different inputs. Useful software.</p></div>
+
+      <article class="project project-crisistwin">
+        <div class="project-visual crisis">
+          <div class="visual-heading"><span class="micro">CrisisTwin / The run page</span><span class="micro">Cal Hacks 13.0</span></div>
+          <picture>
+            <source type="image/webp" srcset="assets/crisistwin-run.webp">
+            <img src="assets/crisistwin-run.jpg" width="1200" height="675" loading="lazy" alt="CrisisTwin's run page: a 3D board of the Berkeley Hills with a simulated fire, fire engines, evacuation orders and safe areas, the AI commander's inputs on the right, and a scoreboard below.">
+          </picture>
+        </div>
+        <div class="project-copy">
+          <div class="project-kicker"><span class="micro">01 / Wildfire response</span><span class="project-date">Oct 2026</span></div>
+          <h3>CrisisTwin</h3>
+          <p class="project-deck">Same fire, same seed. <br>Nobody acting, then an AI in command.</p>
+          <p>With two teammates, I built a wildfire digital twin that couples physics-based fire spread on real terrain with evacuation and traffic models, then scores a Claude incident commander against a no-action baseline.</p>
+          <details><summary>Under the hood <span aria-hidden="true">+</span></summary><p>The commander acts only through one server-validated tool, so deterministic models, not the LLM, produce every number. I added prompt caching, Atlas Vector Search over past dispatches, and an evaluation harness. Fire spread uses the Rothermel model on LANDFIRE fuels.</p></details>
+          <ul class="tags" aria-label="CrisisTwin technologies"><li>Claude</li><li>React</li><li>three.js</li><li>Django</li><li>MongoDB</li></ul>
+          <p class="project-link"><a href="https://github.com/ryankim0709/crisistwin">View on GitHub <span aria-hidden="true">↗</span></a></p>
+        </div>
+      </article>
 
       <article class="project project-doodlr">
         <div class="project-visual whiteboard" role="img" aria-label="Concept sketch of Doodlr: a spoken explanation and a drawing arrive together on a student's whiteboard.">
@@ -143,9 +162,9 @@
           <div class="voice-strip"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>Explain it. Draw it. Connect it.</span></div>
         </div>
         <div class="project-copy">
-          <div class="project-kicker"><span class="micro">01 / AI tutoring</span><span class="project-date">May 2026 — Present</span></div>
+          <div class="project-kicker"><span class="micro">02 / AI tutoring</span><span class="project-date">May 2026 — Present</span></div>
           <h3>Doodlr</h3>
-          <p class="project-deck">A tutor that talks you through it.<br>And draws alongside you.</p>
+          <p class="project-deck">A tutor that talks you through it. <br>And draws alongside you.</p>
           <p>I built an AI tutor that pairs streamed drawing updates with spoken explanations, using the student’s existing whiteboard work as context.</p>
           <details><summary>Under the hood <span aria-hidden="true">+</span></summary><p>LiveKit and Deepgram power the voice experience. I built Django APIs for session access and recording, and provisioned AWS infrastructure with Terraform to deploy containerized services on ECS Fargate.</p></details>
           <ul class="tags" aria-label="Doodlr technologies"><li>LiveKit</li><li>Deepgram</li><li>Django</li><li>Terraform</li><li>AWS</li></ul>
@@ -158,12 +177,12 @@
           <div class="evidence-map" aria-hidden="true">
             <div class="source-sheet"><span class="micro">Source document</span><div class="document-lines"><i></i><i></i><i class="highlight"></i><i class="highlight short"></i><i></i><i class="short"></i></div><span class="source-mark">[01]</span></div>
             <span class="evidence-connector">→</span>
-            <div class="finding-sheet"><span class="micro">Report finding</span><strong>Every claim.<br>A source to follow.</strong><span class="source-ref">↗ Linked passage</span></div>
+            <div class="finding-sheet"><span class="micro">Report finding</span><strong>Every claim. <br>A source to follow.</strong><span class="source-ref">↗ Linked passage</span></div>
           </div>
           <div class="evidence-footer"><span>Cross-document evidence</span><span class="evidence-stamp">Quotes checked ✓</span></div>
         </div>
         <div class="project-copy">
-          <div class="project-kicker"><span class="micro">02 / Real estate</span><span class="project-date">Jul 2026 — Present</span></div>
+          <div class="project-kicker"><span class="micro">03 / Real estate</span><span class="project-date">Jul 2026 — Present</span></div>
           <h3>Duedi</h3>
           <p class="project-deck">A finding is only as useful<br>as the evidence behind it.</p>
           <p>I built a property document analysis platform that links report findings to source passages. When evidence conflicts or is incomplete, unresolved risks stay visible.</p>
@@ -173,14 +192,14 @@
       </article>
 
       <article class="project-archive">
-        <span class="micro archive-index">03 / Earlier work</span>
+        <span class="micro archive-index">04 / Earlier work</span>
         <div><h3>AI Marketing Data Pipeline</h3><p>Roofing-job photos and videos into marketing scripts, using FFmpeg, Deepgram, and LLMs.</p><p class="meta">Dec 2025 — May 2026</p></div>
         <div class="archive-result"><strong>$650<span>/mo</span></strong><p>One paying customer<br>while active</p></div>
       </article>
     </section>
 
     <section class="section experience" aria-labelledby="h-experience">
-      <div class="section-heading"><div><p class="eyebrow">02 / Experience</p><h2 id="h-experience">Systems that hold up<span class="accent">.</span></h2></div><p>Datacenter operations software.<br>Teserac AI · Sunnyvale, CA</p></div>
+      <div class="section-heading"><div><p class="eyebrow">02 / Experience</p><h2 id="h-experience">Systems that hold up<span class="accent">.</span></h2></div><p>Datacenter operations software. <br>Teserac AI · Sunnyvale, CA</p></div>
       <div class="experience-layout">
         <aside class="performance-note">
           <p class="micro">A result from Teserac AI</p>
@@ -194,18 +213,18 @@
             <p class="micro role-date">Mar–May 2026 · Aug 2026–Present</p>
             <h3>Software Engineer</h3><p class="meta">Teserac AI · Part-time</p>
             <ul class="work-list">
-              <li><h4>One place to run the platform.</h4><p>Primary engineer on an internal superadmin portal that centralizes support, tenant provisioning, and AI configuration across <strong>four environments</strong>. Built with React/TypeScript and Django; deployed on ECS Fargate with Terraform.</p></li>
-              <li><h4>Support access, carefully scoped.</h4><p>Designed customer-support impersonation with single-use sign-in links, organization-scoped sessions, and access controls across HTTP, WebSockets, and AI-agent calls. Backed by PostgreSQL row-level security and audit logging.</p></li>
-              <li><h4>From the web to the field.</h4><p>Shipped a React Native field app to <strong>10 internal users via TestFlight</strong>, with interruptible voice responses and shared authentication across web and mobile.</p></li>
+              <li><h4>One place to run the platform.</h4><p>Primary engineer on the internal admin portal that <strong>15+ staff use daily</strong> for support, tenant provisioning, and AI configuration. Built with React/TypeScript and Django; deployed on ECS Fargate with Terraform.</p></li>
+              <li><h4>Support access, carefully scoped.</h4><p>Built audit-logged support impersonation with single-use sign-in links, enforced across HTTP, WebSockets, and AI-agent calls by PostgreSQL row-level security. Support no longer needs staff accounts inside customer organizations.</p></li>
+              <li><h4>Twice the throughput.</h4><p>Fixed the six slowest API paths from a backend performance audit (N+1 queries, query planning, worker cold starts), <strong>doubling throughput</strong> and cutting p95 latency under load from <strong>9.3 s to 4.0 s</strong>.</p></li>
             </ul>
           </article>
           <article class="role">
             <p class="micro role-date">May–Aug 2026</p>
             <h3>Software Engineering Intern</h3><p class="meta">Teserac AI · Full-time</p>
             <ul class="work-list">
-              <li><h4>Less waiting on large diagrams.</h4><p>Used position caching to reduce combined layout-computation and API-response time from <strong>1,886 ms to 125 ms</strong> for 1,000-component power diagrams. Sped up uncached requests by <strong>4.5×</strong>.</p></li>
-              <li><h4>Room for the rest of the database.</h4><p>Batched and paced millions of operations during organization deletions, keeping database CPU at <strong>roughly 40% or below</strong> to preserve capacity for other services.</p></li>
-              <li><h4>A simpler path to sign-in.</h4><p>Replaced per-tenant, per-environment SAML setup with shared Microsoft SSO and email-based tenant routing. Unified three account-provisioning workflows into one endpoint using Keycloak/OIDC.</p></li>
+              <li><h4>Less waiting on large diagrams.</h4><p>Made 1,000-component power diagrams load <strong>15× faster</strong> (1,886 ms → 125 ms) by caching layout positions. Uncached loads got <strong>4.5×</strong> faster.</p></li>
+              <li><h4>Room for the rest of the database.</h4><p>Rebuilt organization deletion as a staged, resumable Celery pipeline, so large tenants no longer time out or lock tables. Pacing millions of operations keeps database CPU at <strong>about 40% or below</strong>.</p></li>
+              <li><h4>A simpler path to sign-in.</h4><p>Replaced per-tenant, per-environment SAML with shared Microsoft SSO and email-based tenant routing. Merged three account-provisioning flows into one Keycloak/OIDC endpoint.</p></li>
             </ul>
           </article>
         </div>
@@ -237,7 +256,7 @@
       <div class="contact-layout"><div><h2 id="h-contact">Let’s build<br><em>something useful.</em></h2><p>I’m looking for Summer 2027 software engineering and applied-AI internships. I’d be happy to walk through anything here.</p></div><div class="contact-links"><a class="email-link" href="mailto:ryankim1@berkeley.edu">ryankim1@berkeley.edu <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/rkim0709" rel="me">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/ryankim0709" rel="me">GitHub <span aria-hidden="true">↗</span></a><a href="assets/ryan-kim-resume.pdf">Résumé (PDF) <span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
-  <footer><a class="monogram" href="#" aria-label="Back to top">rk<span aria-hidden="true">.</span></a><p>Palo Alto roots. Berkeley EECS.<br><span>Updated October 2026</span></p><a href="#" class="back-top">Back to top ↑</a></footer>
+  <footer><a class="monogram" href="#" aria-label="Back to top">rk<span aria-hidden="true">.</span></a><p>Palo Alto roots. Berkeley EECS. <br><span>Updated November 2026</span></p><a href="#" class="back-top">Back to top ↑</a></footer>
 </div>
 </body>
 </html>

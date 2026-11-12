@@ -111,6 +111,11 @@ details[open] summary span { transform: rotate(45deg); }
 details p { padding: 14px 0 0; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 18px; font: .625rem/1.7 var(--mono); color: var(--muted); }
 .evidence { background: var(--card); }
+.crisis { background: var(--card); }
+.crisis picture { margin: auto 0; padding-top: 16px; }
+.crisis img { width: 100%; border: 1px solid var(--line); box-shadow: 3px 3px 0 var(--line); }
+.project-link { margin-top: 16px; font: .75rem var(--mono); }
+.project-link a { color: var(--accent); }
 .evidence-map { display: flex; align-items: center; margin: auto 0; padding: 24px 0; }
 .source-sheet { width: 46%; padding: 20px 15px; background: var(--paper); border: 1px solid var(--line); transform: rotate(-5deg); box-shadow: 3px 3px 0 var(--line); }
 .source-sheet .micro,.finding-sheet .micro { font-size: .5625rem; }
